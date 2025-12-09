@@ -1,0 +1,26 @@
+{
+  "name": "finance-tracker-server",
+  "version": "1.0.0",
+  "description": "The **Finance Tracker Server** is a backend API built using **Node.js**, **Express.js**, **PostgreSQL**, and **Sequelize ORM**.  \r It powers the Personal Finance Tracker application by handling user authentication, transactions, categories, and financial summaries.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binojmadhuranga/finance-tracker-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/binojmadhuranga/finance-tracker-server/issues"
+  },
+  "homepage": "https://github.com/binojmadhuranga/finance-tracker-server#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1"
+  }
+}
