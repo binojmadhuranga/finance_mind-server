@@ -9,9 +9,9 @@
     "strict": true,
     "skipLibCheck": true,
 
-    "forceConsistentCasingInFileNames": true,
-
     "types": ["node", "express"],
+
+    "forceConsistentCasingInFileNames": true,
     "sourceMap": true
   },
   "include": ["src"],
