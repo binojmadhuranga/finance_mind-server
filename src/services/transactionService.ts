@@ -1,17 +1,23 @@
 import Transaction from "../models/Transaction";
 
+interface CreateTransactionInput {
+  amount: number;
+  type: "income" | "expense";
+  date: string;
+  note?: string;
+  categoryId: number;
+}
+
 export const createTransaction = async (
   userId: number,
-  data: {
-    amount: number;
-    type: "income" | "expense";
-    date: string;
-    note?: string;
-    categoryId: number;
-  }
+  data: CreateTransactionInput
 ) => {
   return await Transaction.create({
-    ...data,
+    amount: data.amount,
+    type: data.type,
+    date: data.date,
+    note: data.note,
+    categoryId: data.categoryId,
     userId,
   });
 };
