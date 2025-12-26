@@ -1,8 +1,9 @@
-import { Request, Response, NextFunction } from "express";
+import { Response, NextFunction } from "express";
 import { verifyToken } from "../utils/jwt";
+import { AuthRequest } from "../types/authRequest";
 
 export const authMiddleware = (
-  req: Request,
+  req: AuthRequest,
   res: Response,
   next: NextFunction
 ) => {
@@ -14,7 +15,7 @@ export const authMiddleware = (
 
   try {
     const decoded = verifyToken(token);
-    (req as any).user = decoded;
+    req.user = decoded; 
     next();
   } catch {
     return res.status(401).json({ error: "Invalid token" });
