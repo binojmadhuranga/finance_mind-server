@@ -1,8 +1,9 @@
 import express from "express";
 import cors from "cors";
-import authRoutes from "./routes/auth";
+import authRoutes from "./routes/authRouter";
 import cookieParser from "cookie-parser";
-import transactionRoutes from "./routes/transaction";
+import transactionRoutes from "./routes/transactionRouter";
+import categoryRoutes from "./routes/categoryRoutes";
 
 const app = express();
 
@@ -17,5 +18,6 @@ app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/transactions", transactionRoutes);
+app.use("/api/categories", categoryRoutes);
 
 export default app;
