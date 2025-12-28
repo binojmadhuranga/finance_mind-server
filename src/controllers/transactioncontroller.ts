@@ -40,3 +40,51 @@ export const getTransactions = async (
     res.status(500).json({ message: "Failed to fetch transactions" });
   }
 };
+
+
+export const updateTransaction = async (
+  req: AuthRequest,
+  res: Response
+) => {
+  try {
+    if (!req.user) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    const transactionId = Number(req.params.id);
+
+    const updatedTransaction =
+      await transactionService.updateTransaction(
+        req.user.id,
+        transactionId,
+        req.body
+      );
+
+    res.json(updatedTransaction);
+  } catch (err: any) {
+    res.status(400).json({ message: err.message });
+  }
+};
+
+export const deleteTransaction = async (
+  req: AuthRequest,
+  res: Response
+) => {
+  try {
+    if (!req.user) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    const transactionId = Number(req.params.id);
+
+    await transactionService.deleteTransaction(
+      req.user.id,
+      transactionId
+    );
+
+    res.json({ message: "Transaction deleted successfully" });
+  } catch (err: any) {
+    res.status(400).json({ message: err.message });
+  }
+};
+

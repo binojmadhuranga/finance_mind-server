@@ -2,15 +2,17 @@ import { Router } from "express";
 import {
   createTransaction,
   getTransactions,
+  updateTransaction,
+  deleteTransaction,
 } from "../controllers/transactioncontroller";
 import { authMiddleware } from "../middleware/authMiddleware";
 
+
 const router = Router();
 
-// Create income / expense
 router.post("/", authMiddleware, createTransaction);
-
-// Get all transactions (optionally filter by month later)
 router.get("/", authMiddleware, getTransactions);
+router.put("/:id", authMiddleware, updateTransaction);
+router.delete("/:id", authMiddleware, deleteTransaction);
 
 export default router;
