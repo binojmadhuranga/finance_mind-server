@@ -1,4 +1,3 @@
-import { fn, col} from "sequelize";
 import Category from "../models/Category";
 import Transaction from "../models/Transaction";
 import { literal } from "sequelize";
